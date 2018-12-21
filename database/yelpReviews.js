@@ -12,11 +12,7 @@ const SummarySchema =  new mongoose.Schema({
         three: Number,
         two: Number,
         one: Number,
-    },
-    history: [{
-        year: String,
-        average: Number,
-    }],
+    }
 
 });
 
@@ -35,15 +31,9 @@ const ReviewSchema = new mongoose.Schema({
     date: {type: Date, default: Date.now},
     text: String,
     language: {type: String, default: 'English'},
-    userful: [{
-        username: String,
-    }],
-    funny: [{
-        username: String,
-    }],
-    cool: [{
-        username: String,
-    }],
+    useful: [String],
+    funny: [String],
+    cool: [String],
     ownerResponse:{
         type: String, 
         default: 'null'
@@ -51,10 +41,14 @@ const ReviewSchema = new mongoose.Schema({
 
 });
 
+
+
+
 const Summary = mongoose.model('Summary', SummarySchema);
 const Review = mongoose.model('Review', ReviewSchema);
 
 
 module.exports = {
-   
+   Summary,
+   Review
 }
