@@ -47,8 +47,51 @@ const ReviewSchema = new mongoose.Schema({
 const Summary = mongoose.model('Summary', SummarySchema);
 const Review = mongoose.model('Review', ReviewSchema);
 
+const getSummaryByRestaurantId = function(restaurantId, callback) {
+    Summary.findOne({restaurantId})
+        .catch(error => callback(error))
+        .then(docs => callback(null, docs));
+};
+
+const getReviewsByRestaurantId = function(restaurantId, callback) {
+    Review.find({restaurantId})
+        .catch(error => callback(err))
+        .then(docs => callback(null, docs))
+}
+
+const searchReviewsByRestaurantId = function(restaurantId, query, callback) {
+    Review.find({
+        $and: [
+            {restaurantId},
+            {
+                text: {$regex: query, $options: 'i'} 
+            }
+        ]
+    }).catch(error => callback(error))
+      .then(docs => callback(null, docs))
+}
+
+const addReview = function(restaurantId, {name, text, stars}, callback) {
+    let review = new Review({
+        restaurantId: restaurantId,
+        user: {name: name, elite: "'18"},
+        language: 'English',
+        text: text,
+        stars: stars,
+    });
+    review.save(function(error, doc) {
+        if(error) {
+            return callback(error);
+        }
+
+        callback(null, doc);
+
+    })
+}
 
 module.exports = {
-   Summary,
-   Review
+   getSummaryByRestaurantId,
+   getReviewsByRestaurantId,
+   searchReviewsByRestaurantId,
+   addReview
 }
