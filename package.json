@@ -7,7 +7,9 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "jest --detectOpenHandles"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
@@ -15,6 +17,8 @@
     "morgan": "^1.9.1"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^23.6.0",
+    "proxyquire": "^2.1.0"
   }
 }
