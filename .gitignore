@@ -65,3 +65,6 @@ node_modules
 
 # config.js
 config.js
+
+# webpack destination directory
+dist
