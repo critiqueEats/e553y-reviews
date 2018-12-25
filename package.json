@@ -8,13 +8,10 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-<<<<<<< HEAD
     "server-dev": "nodemon server/server.js",
     "mongo-start": "sudo mongod --port 3002",
-    "seed-db": "node database/seed.js"
-=======
+    "seed-db": "node database/seed.js",
     "test": "jest --detectOpenHandles"
->>>>>>> Write unit tests for db helper functions
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -23,13 +20,9 @@
     "morgan": "^1.9.1"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "Faker": "^0.7.2",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
-=======
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^23.6.0",
     "proxyquire": "^2.1.0"
->>>>>>> Write unit tests for db helper functions
   }
 }
