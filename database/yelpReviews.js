@@ -30,6 +30,7 @@ const ReviewSchema = new mongoose.Schema({
     stars: Number,
     date: {type: Date, default: Date.now},
     text: String,
+    photos: [String],
     language: {type: String, default: 'English'},
     useful: [String],
     funny: [String],
@@ -93,5 +94,8 @@ module.exports = {
    getSummaryByRestaurantId,
    getReviewsByRestaurantId,
    searchReviewsByRestaurantId,
-   addReview
+   addReview,
+   Summary,
+   Review
 }
+
