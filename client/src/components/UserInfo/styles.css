@@ -1,0 +1,42 @@
+.userInfo {
+    display: flex;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif
+}
+
+.avatarPanel {
+    display: flex;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-right: 9px solid transparent;
+}
+
+.avatar {
+    width: 60px;
+    border-radius: 2px;
+}
+
+.details {
+    list-style: none;
+    padding-inline-start: 0px;
+    line-height: 18px;
+}
+
+.userName {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(0, 115, 187);
+}
+
+.city {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgb(51, 51, 51);
+}
+
+.stats {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgb(102, 102, 102);
+}
