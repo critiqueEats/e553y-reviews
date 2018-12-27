@@ -1,0 +1,61 @@
+.container {   
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgb(0, 115, 187);
+}
+
+.linksList {
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+.linkItem {
+    height: 25px;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    line-height: 25px;
+}
+
+.linkItem:last-child {
+    border-bottom: none;
+}
+
+.linkItem a {
+    text-decoration: none;
+}
+
+.shareIcon,
+.embedIcon,
+.complimentIcon,
+.sendMessageIcon,
+.followIcon {
+    display: table-cell;
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    width: 25px;
+    border-right: 12px solid transparent;
+}
+.shareIcon {
+    background-image: url("https://s3.amazonaws.com/lorem-yelpsum-photos/icons/share.svg");
+}
+
+.complimentIcon {
+    background-image: url("https://s3.amazonaws.com/lorem-yelpsum-photos/icons/complement.svg")
+}
+.sendMessageIcon {
+    background-image: url("https://s3.amazonaws.com/lorem-yelpsum-photos/icons/sendMessage.svg")
+}
+.followIcon {
+    background-image: url("https://s3.amazonaws.com/lorem-yelpsum-photos/icons/follow.svg")
+}
+.embedIcon {
+    background-image: url("https://s3.amazonaws.com/lorem-yelpsum-photos/icons/embed.svg")
+}
+
+.iconText {
+    display: table-cell;
+}
+
+.iconText:hover {
+    text-decoration-line: underline;
+}
