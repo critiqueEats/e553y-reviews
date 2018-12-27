@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+}
+
+.container ul {
+    list-style-type: none;
+}
+
+.userSidePanel {
+    width: 220px;
+}
+
+.reviewContentPanel {
+    width: 425px;
+}
