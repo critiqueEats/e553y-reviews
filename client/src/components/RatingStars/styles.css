@@ -1,0 +1,19 @@
+.container {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.starFull, .starBlank {
+    height: 20px;
+    width: 20px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+
+.starFull {
+    background-image: url("https://s3.amazonaws.com/lorem-yelpsum-photos/icons/star-full.svg"); 
+}
+
+.starBlank {
+    background-image: url("https://s3.amazonaws.com/lorem-yelpsum-photos/icons/star-blank.svg");
+}
