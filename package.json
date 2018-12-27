@@ -17,11 +17,13 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "css-loader": "^2.1.0",
     "express": "^4.16.4",
     "mongoose": "^5.4.0",
     "morgan": "^1.9.1",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "style-loader": "^0.23.1"
   },
   "devDependencies": {
     "Faker": "^0.7.2",
