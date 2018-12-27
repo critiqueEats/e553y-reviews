@@ -6,7 +6,7 @@ import PhotoPreview from '../PhotoPreview/PhotoPreview.jsx';
 import styles from './styles.css';
 
 const ReviewListItem = ({review})=> {
-    let {user, photos, stars, text, date, cool, funny, useful} = review;
+    const {user, photos, stars, text, date, cool, funny, useful} = review;
     return (
     <div className={styles.container}>
         <div className={styles.userSidePanel}>
@@ -23,13 +23,16 @@ const ReviewListItem = ({review})=> {
             <ul>
                 <li>
                     < RatingStars rating={stars} />
-                    <span>{new Date(date).toLocaleDateString()}</span>
+                    <span className={styles.reviewDate}>{new Date(date).toLocaleDateString()}</span>
                 </li>
                 <li>
                     <p className={styles.reviewText}>{text}</p>
                 </li>
                 <li>
                     {photos.length? <PhotoPreview photos={photos} /> : ''} 
+                </li>
+                <li>
+                   <VoteComponent votes={{useful, funny, cool}} />
                 </li>
             </ul>
         </div>
