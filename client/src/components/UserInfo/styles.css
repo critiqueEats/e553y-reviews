@@ -39,6 +39,9 @@
 }
 
 .stats {
+    display: flex;
+    align-items: center;
+    widows: 100%;
     font-size: 12px;
     font-weight: 400;
     color: rgb(102, 102, 102);
