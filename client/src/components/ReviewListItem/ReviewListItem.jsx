@@ -40,7 +40,7 @@ class ReviewListItem extends React.Component {
                 <div className={styles.reviewContentPanel}>
                     <ul>
                         <li className={styles.alignVertical}>
-                            < RatingStars rating={stars} size="medium" />
+                            <RatingStars rating={stars} size="medium" />
                             &nbsp;
                             <span className={styles.reviewDate}>{new Date(date).toLocaleDateString()}</span>
                         </li>
