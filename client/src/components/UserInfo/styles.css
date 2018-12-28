@@ -14,7 +14,10 @@
 
 .avatar {
     width: 60px;
-    border-radius: 2px;
+    height: 60px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    object-fit: cover;
 }
 
 .details {
@@ -36,6 +39,9 @@
 }
 
 .stats {
+    display: flex;
+    align-items: center;
+    widows: 100%;
     font-size: 12px;
     font-weight: 400;
     color: rgb(102, 102, 102);
