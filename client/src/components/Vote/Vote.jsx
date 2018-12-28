@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles.css';
+import Icon from '../Icon/Icon.jsx';
 
 const Vote=({votes}) => {
     const {useful, funny, cool} = votes;
@@ -31,22 +32,22 @@ const Vote=({votes}) => {
             <ul className={styles.buttonContainer}>
                 <li>
                     <a className={styles.voteButton}>
-                        <span className={styles.usefulIcon}></span>
-                        Useful&nbsp;
+                        <Icon name="useful_outline" height="18" width="18" fill="#666" />
+                        &nbsp;Useful&nbsp;
                         <span className={styles.voteCount}>{useful.length ? useful.length : ''}</span>
                         </a>
                 </li>                
                 <li>
                     <a className={styles.voteButton}>
-                        <span className={styles.funnyIcon}></span>
-                        Funny&nbsp;
+                        <Icon name="funny_outline" height="18" width="18" fill="#666" />
+                        &nbsp;Funny&nbsp;
                         <span className={styles.voteCount}>{funny.length ? funny.length : ''}</span>
                         </a>
                 </li>                
                 <li>
                     <a className={styles.voteButton}>
-                        <span className={styles.coolIcon}></span>
-                        Cool&nbsp;
+                        <Icon name="cool_outline" height="18" width="18" fill="#666" />
+                        &nbsp;Cool&nbsp;
                         <span className={styles.voteCount}>{cool.length ? cool.length : ''}</span>
                         </a>
                 </li>                

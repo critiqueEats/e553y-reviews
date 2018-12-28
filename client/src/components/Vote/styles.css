@@ -23,6 +23,9 @@
 }
 
 .voteButton {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
     height: 30px;
     border: 1px solid #ccc;
     border-radius: 3px;
