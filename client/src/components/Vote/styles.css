@@ -1,0 +1,37 @@
+.container {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;   
+    color: rgb(102, 102, 102);
+}
+
+.voterNames {
+    text-decoration: none;
+    color: rgb(0, 115, 187);
+}
+
+.voterNames:hover {
+    text-decoration: underline;
+}
+.buttonContainer {
+    padding-inline-start: 0px;    
+}
+
+.buttonContainer li {
+    display: inline;
+    margin-right: 6px;
+}
+
+.voteButton {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px 8px;    
+}
+
+.voteCount {
+    font-weight: 400;
+}
