@@ -1,13 +1,15 @@
 const React = require('react');
 const styles = require('./styles.css');
+import Icon from '../Icon/Icon.jsx';
 
-const Links = ({name}) => (
+const Links = ({name, show}) => (
 
-    <div className={styles.container}>
+    <div className={show? styles.container: styles.hiddenContainer}>
         <ul className={styles.linksList}>
             <li className={styles.linkItem}>
-                <a href="#">
-                    <div className={styles.shareIcon}>
+                <a href="javascript:;">
+                    <div className={styles.icon}>
+                        <Icon name="share" width="18" height="18" fill="#0073BB"/>
                     </div>
                     <div className={styles.iconText}>
                         Share review
@@ -15,8 +17,9 @@ const Links = ({name}) => (
                 </a>
             </li>
             <li className={styles.linkItem}>
-                <a href="#">
-                    <div className={styles.embedIcon}>
+                <a href="javascript:;">
+                    <div className={styles.icon}>
+                        <Icon name="embed" width="18" height="18" fill="#0073BB" />
                     </div>
                     <div className={styles.iconText}>
                         Embed review
@@ -24,8 +27,9 @@ const Links = ({name}) => (
                 </a>
             </li>
             <li className={styles.linkItem}>
-                <a href="#">
-                    <div className={styles.complimentIcon}>
+                <a href="javascript:;">
+                    <div className={styles.icon}>
+                        <Icon name="compliment" width="18" height="18" fill="#0073BB" />
                     </div>
                     <div className={styles.iconText}>
                         Compliment
@@ -33,8 +37,9 @@ const Links = ({name}) => (
                 </a>
             </li>
             <li className={styles.linkItem}>
-                <a href="#">
-                    <div className={styles.sendMessageIcon}>
+                <a href="javascript:;">
+                    <div className={styles.icon}>
+                        <Icon name="speech" width="18" height="18" fill="#0073BB" />
                     </div>
                     <div className={styles.iconText}>
                         Send message
@@ -42,8 +47,9 @@ const Links = ({name}) => (
                 </a>
             </li>
             <li className={styles.linkItem}>
-                <a href="#">
-                    <div className={styles.followIcon}>
+                <a href="javascript:;">
+                    <div className={styles.icon}>
+                        <Icon name="following" width="18" height="18" fill="#0073BB"/>
                     </div>
                     <div className={styles.iconText}>
                         Follow {name}
