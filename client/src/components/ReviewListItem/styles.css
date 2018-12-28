@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.container ul {
+    list-style-type: none;
+}
+
+.userSidePanel {
+    width: 220px;
+}
+
+.reviewContentPanel {
+    width: 425px;
+}
+
+.alignVertical {
+    display: flex;
+    align-items: center;
+}
+
+.reviewDate {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(102, 102, 102);
+    line-height: 18px;
+}
+
+.reviewText {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(51, 51, 51);
+    line-height: 18px;
+}
