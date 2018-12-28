@@ -15,6 +15,11 @@
     width: 425px;
 }
 
+.alignVertical {
+    display: flex;
+    align-items: center;
+}
+
 .reviewDate {
     font-size: 14px;
     font-weight: 400;

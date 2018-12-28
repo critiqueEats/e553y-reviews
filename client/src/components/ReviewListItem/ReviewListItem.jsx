@@ -3,6 +3,7 @@ import UserInfo from '../UserInfo/UserInfo.jsx';
 import Links from '../Links/Links.jsx';
 import RatingStars from '../RatingStars/RatingStars.jsx';
 import PhotoPreview from '../PhotoPreview/PhotoPreview.jsx';
+import Vote from '../Vote/Vote.jsx';
 import styles from './styles.css';
 
 const ReviewListItem = ({review})=> {
@@ -21,8 +22,9 @@ const ReviewListItem = ({review})=> {
         </div>
         <div className={styles.reviewContentPanel}>
             <ul>
-                <li>
-                    < RatingStars rating={stars} />
+                <li className={styles.alignVertical}>
+                    < RatingStars rating={stars} size="medium" />
+                    &nbsp;
                     <span className={styles.reviewDate}>{new Date(date).toLocaleDateString()}</span>
                 </li>
                 <li>
@@ -32,7 +34,7 @@ const ReviewListItem = ({review})=> {
                     {photos.length? <PhotoPreview photos={photos} /> : ''} 
                 </li>
                 <li>
-                   <VoteComponent votes={{useful, funny, cool}} />
+                   <Vote  votes={{useful, funny, cool}} />
                 </li>
             </ul>
         </div>
