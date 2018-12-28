@@ -14,7 +14,10 @@
 
 .avatar {
     width: 60px;
-    border-radius: 2px;
+    height: 60px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    object-fit: cover;
 }
 
 .details {
