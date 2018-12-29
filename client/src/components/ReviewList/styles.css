@@ -1,0 +1,41 @@
+.container {
+    font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.composeReview {
+    display: flex;
+}
+
+.composeReviewSidePanel {
+    display: inline-block;
+    min-width: 220px;
+}
+.composeReviewBody {
+    width: 425px;
+    padding-left: 40px;
+}
+.container > li {
+    display: flex;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.composeReviewIsland {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 360px;
+    height: 72px;
+    padding: 11px;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 5px;
+}
+
+.starsWrapper {
+    display: flex; 
+    justify-items: center;
+    padding: 5px; 
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
