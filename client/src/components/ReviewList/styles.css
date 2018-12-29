@@ -18,15 +18,19 @@
 }
 .container > li {
     display: flex;
+    box-sizing: border-box;
+    padding: 18px 0px;
     border-bottom: 1px solid rgb(230, 230, 230);
+    
 }
 
 .composeReviewIsland {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 360px;
-    height: 72px;
+    box-sizing: border-box;
+    width: 382px;
+    height: 94px;
     padding: 11px;
     background-color: rgb(245, 245, 245);
     border: 1px solid rgb(230, 230, 230);
@@ -34,8 +38,26 @@
 }
 
 .starsWrapper {
-    display: flex; 
-    justify-items: center;
-    padding: 5px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0px;
     border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.linkWrapper {
+    padding: 5px 0px;
+}
+
+.startReviewLink {
+    text-decoration: none;
+    font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #0073bb;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.startReviewLink:hover {
+    text-decoration-line: underline;
 }

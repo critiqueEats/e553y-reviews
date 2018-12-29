@@ -35,7 +35,9 @@ class ReviewList extends React.Component {
                             <div className={styles.starsWrapper}>
                                 <AddStars />
                             </div>
-                            <a href="javascript:;" className={styles.startReviewLink}>Start your review</a>
+                            <div className={styles.linkWrapper}>
+                                <a href="javascript:;" className={styles.startReviewLink}>Start your review</a>
+                            </div>
                         </div>
                     </div>
                 </li>
