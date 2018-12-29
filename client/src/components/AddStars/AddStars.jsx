@@ -60,9 +60,9 @@ class AddStars extends React.Component {
                     }
 
                     {rating-- > 0 ?
-                        <Icon name={"big_review"} width={30} height={30} fill={fill} />
+                        <Icon name={"big_review"} width={34} height={34} fill={fill} />
                         :
-                        <Icon name={"big_review"} width={30} height={30} fill="#CCC" />
+                        <Icon name={"big_review"} width={34} height={34} fill="#CCC" />
                     }
             </div>
             ))}
