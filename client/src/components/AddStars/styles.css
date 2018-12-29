@@ -1,0 +1,35 @@
+.container {
+    display: inline-flex;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+.starContainer {
+    position: relative;
+}
+.labelContainer {
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    position: absolute;
+    top: -35px;
+    left: -135px;
+    align-items: center;
+    width: 300px;
+}
+.label {
+    display: flex;
+    align-items: center;
+    height: 18px;
+    padding: 6px 9px;
+    background-color: rgba(51, 51, 51, .9);
+    border: 1px solid transparent;
+    border-radius: 5px; 
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+}
+
+.carret{
+    border-top: 5px solid rgba(51, 51, 51, .9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;    
+}
