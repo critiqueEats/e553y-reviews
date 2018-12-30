@@ -12,6 +12,8 @@ app.use(morgan('dev'));
 //setup bodyParser
 app.use(bodyParser.json());
 
+app.use('/', express.static('client/dist'));
+
 //get all reviews for restaurant by id
 app.get('/:restaurantId/reviews', (req, res) => {
     let restaurantId = req.params.restaurantId;
@@ -34,6 +36,19 @@ app.get('/:restaurantId/summary', (req, res) => {
         res.status(201);
         res.json(docs);
     });
+})
+
+//search reviews by restaurantId
+app.get('/:restaurantId/search', (req, res) => {
+    let restaurantId = req.params.restaurantId;
+    let query = req.body.query;
+    models.searchReviewsByRestaurantId(restaurantId,query, function(err, docs) {
+        if(err) {
+            return res.status(500).json({error: "server error"});
+        }
+        res.status(200);
+        res.json(dods);
+    })
 })
 
 //add a new review for restaurant by id
