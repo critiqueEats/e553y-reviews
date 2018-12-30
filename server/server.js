@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const models = require('../database/yelpReviews');
+const template = require('./templates/index');
 
 
 const app = express();
@@ -63,6 +64,13 @@ app.post('/:restaurantId/reviews', (req, res) => {
         res.status(201);
         res.json(docs);
     });
+});
+
+//add endpoint for seving dynamic html
+app.get('/reviews/:restaurantId', (req, res) => {
+    let restaurantId = req.params.restaurantId;
+    res.status(200);
+    res.send(template(restaurantId));    
 });
 
 let port = 5002;
