@@ -2,8 +2,56 @@
     font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: 400;
+    color: #666;
 }
 
+.reviewsHeader {
+    display: flex;
+    flex-direction: column;
+}
+.headerLabel {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    color: #d32323;
+}
+
+.headerForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.searchbarWrapper {
+    display: flex;
+    align-items: center;
+    min-width: 50%;
+}
+.searchbar {
+    box-sizing: border-box;
+    border: 1px solid #999;
+    height: 30px;
+    width: 260px;
+    font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    font-size: 14px; 
+    text-indent: .5rem;
+    
+}
+
+.searchButton {
+    height: 30px;
+    width: 30px;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    text-decoration: none;
+    font-family: inherit;
+    box-sizing: border-box;
+    background-color: #d32323;
+}
+.dropdownContainer {
+
+}
 .composeReview {
     display: flex;
 }
@@ -61,3 +109,4 @@
 .startReviewLink:hover {
     text-decoration-line: underline;
 }
+
