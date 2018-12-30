@@ -20,7 +20,7 @@ class Search extends React.Component {
     }
 
     onButtonClick() {
-        const {onSearch} = props;
+        const {onSearch} = this.props;
         const searchTerm = this.state.searchTerm;
 
         onSearch(searchTerm);
