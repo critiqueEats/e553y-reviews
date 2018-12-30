@@ -3,6 +3,7 @@ import ReviewListItem from '../ReviewListItem/ReviewListItem.jsx';
 import AddStars from '../AddStars/AddStars.jsx';
 import Icon from '../Icon/Icon.jsx';
 import Dropdown from '../Dropdown/Dropdown.jsx';
+import Search from '../Search/Search.jsx';
 import styles from './styles.css';
 import Axios from 'axios';
 
@@ -11,13 +12,13 @@ class ReviewList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            restaurantId: this.props.restaurantId,
             loading: true,
-            searchTerm: null,
-            selectedLanguage: [0]
-
+            searchMode: false,
+            searchedTerm: null,
+            selectedLanguage: [0]           
         }
-
+        
+        this.languages = ["English"]
         this.sortOptions = [
             "Lorem Yelpsum Sort", 
             "Newest First",
@@ -26,50 +27,87 @@ class ReviewList extends React.Component {
             "Lowest Rated", 
             "Elites"
         ];
-        this.languages = ["English"]
-        this.reviews = [];
-        this.fetchReviews()
+        
+        this.restaurantId = this.props.restaurantId,
+       
+        this.onSearch = this.onSearch.bind(this);
+        this.onClearSearch = this.onClearSearch.bind(this);
+        this.onSortOptionChange = this.onSortOptionChange.bind(this);
+        this.onLanguageChange = this.onLanguageChange.bind(this);
     }
     
-    fetchReviews() {
-        const reviewList = this;
+    componentDidMount() {
         Axios.get('http://127.0.0.1:5002/1/reviews')
-            .then(response =>  reviewList.reviews = response.data)
+            .then(response =>  this.reviews = response.data)
             .catch(error => console.error(error))
             //always gets run
-            .then(()=> reviewList.setState({loading: false}))
+            .then(()=> this.setState({loading: false}))
     }
 
-    onSeachbarChange() {
+    onSearch(query) {
+        this.setState({
+            searchedTerm: query,
+            loading: true,
+            searchMode: true
+        })
+        Axios.post('http://127.0.0.1:5002/1/search',{query: query})
+            .then(response => this.reviews = response.data)
+            .catch(error => console.error(error))
+            .then(()=> this.setState({loading: false}))
     }
 
-    onSearchClick() {
-
+    onClearSearch() {
+        this.setState({
+            searchMode: false,
+            searchedTerm: null
+        })
+        Axios.get('http://127.0.0.1:5002/1/reviews')
+        .then(response =>  this.reviews = response.data)
+        .catch(error => console.error(error))
+        //always gets run
+        .then(()=> this.setState({loading: false}))
     }
+
     onSortOptionChange() {
+        console.log(arguments)
         console.log("hey")
     }
-    onLanguageChange () {
-        
+    onLanguageChange (idx) {
+        console.log(idx)
     }
     render() {
         return (
             <div className={styles.container}>
                 <li className={styles.reviewsHeader}>
                     <p className={styles.headerLabel}>Recomended Reviews</p>
-                    <form className={styles.headerForm}  onSubmit={this.onSearchClick.bind(this)} id="reviewsControl">
-                        <span className={styles.searchbarWrapper}>    
-                            <input type="text" className={styles.searchbar} onChange={this.onSeachbarChange.bind(this)} placeholder="Search within the reviews"></input>
-                            <button className={styles.searchButton} type="submit">
-                            <Icon name="search_small" size="small" fill="#FFF" />
+                    
+                    <form className={styles.headerForm} onSubmit={(e)=> e.preventDefault()} id="reviewsControl">
+                        {this.state.searchMode ? 
+                            <p className={styles.searchResultText}>
+                                {`${this.reviews.length} reviews mentioning “${this.state.searchedTerm}”`}
+                            </p>
+                            :''
+                        }
+                        {this.state.searchMode ? 
+                            <button className={styles.clearSearchButton} onClick={this.onClearSearch}>
+                            Clear results
+                                <Icon name="close_small" height="14" width="14" fill="#666" />
                             </button>
+                            :''
+                        }
+                        <span className={styles.searchbarWrapper}>    
+                            <Search onSearch={this.onSearch} />
                         </span>
+                        {this.state.searchMode ? '':
                         <span className={styles.dropdownWrapper}>
-                            <Dropdown label="Sort By" options={this.sortOptions} selectedIdx={0} onSelectionChange={this.onSortOptionChange.bind(this)} />
+                            <Dropdown label="Sort By" options={this.sortOptions} selectedIdx={0} onSelectionChange={this.onSortOptionChange} />
                         </span>
+                        }
+                        {this.state.searchMode ? '':
                         <span className={styles.dropdownWrapper}>
-                            <Dropdown label="Language" options={this.languages} selectedIdx={0} onSelectionChange={this.onLanguageChange.bind(this)} />
+                            <Dropdown label="Language" options={this.languages} selectedIdx={0} onSelectionChange={this.onLanguageChange} />
                         </span>
+                        }
                     </form>
                 </li>
                 <li className={styles.composeReview}>
