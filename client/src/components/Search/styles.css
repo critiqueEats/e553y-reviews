@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+.searchbar {
+    box-sizing: border-box;
+    border: 1px solid #999;
+    height: 30px;
+    font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    font-size: 14px; 
+    text-indent: .5rem;
+    
+}
+
+.searchButton {
+    height: 30px;
+    width: 30px;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    text-decoration: none;
+    font-family: inherit;
+    box-sizing: border-box;
+    background-color: #d32323;
+}
