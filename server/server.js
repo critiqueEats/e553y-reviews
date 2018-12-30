@@ -39,7 +39,7 @@ app.get('/:restaurantId/summary', (req, res) => {
 })
 
 //search reviews by restaurantId
-app.get('/:restaurantId/search', (req, res) => {
+app.post('/:restaurantId/search', (req, res) => {
     let restaurantId = req.params.restaurantId;
     let query = req.body.query;
     models.searchReviewsByRestaurantId(restaurantId,query, function(err, docs) {
@@ -47,7 +47,7 @@ app.get('/:restaurantId/search', (req, res) => {
             return res.status(500).json({error: "server error"});
         }
         res.status(200);
-        res.json(dods);
+        res.json(docs);
     })
 })
 
