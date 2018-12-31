@@ -25,7 +25,6 @@
 .searchbarWrapper {
     display: flex;
     align-items: center;
-    min-width: 50%;
 }
 .searchbar {
     box-sizing: border-box;
