@@ -18,13 +18,14 @@ app.use('/', express.static('client/dist'));
 //get all reviews for restaurant by id
 app.get('/:restaurantId/reviews', (req, res) => {
     let restaurantId = req.params.restaurantId;
+    const sortBy = req.query.sortBy;
     models.getReviewsByRestaurantId(restaurantId, function(err, docs) {
         if(err) {
             return res.status(500).json({error: "server error"});
         }
         res.status(201);
         res.json(docs);
-    });
+    }, sortBy);
 });
 
 //get summary for restaurant by id

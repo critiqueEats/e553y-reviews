@@ -54,9 +54,34 @@ const getSummaryByRestaurantId = function(restaurantId, callback) {
         .then(docs => callback(null, docs));
 };
 
-const getReviewsByRestaurantId = function(restaurantId, callback) {
+const getReviewsByRestaurantId = function(restaurantId, callback, sortBy = '') {
+    const allowedSort = ['', 'date', '-date', 'stars', '-stars', 'elites'];
+    
+    if(sortBy && !allowedSort.includes(sortBy)) {
+        return callback(new Error("Invalid sort criteria: " + sortBy));
+    }
+    //when elite sort option is selected
+    if(sortBy === 'elites') {
+        return Review.find({
+            $and: [
+                {restaurantId},
+                {
+                    'user.elite': {$ne: 'false'}
+                }
+            ]
+        }).sort('-date')
+        .catch(error => callback(error))
+        .then(docs => callback(null, docs))
+    }
+    //to exclude empty sortBy
+    if(sortBy) {
+        return Review.find({restaurantId}).sort(sortBy)
+                .catch(error => callback(error))
+                .then(docs => callback(null, docs))    
+    }
+
     Review.find({restaurantId})
-        .catch(error => callback(err))
+        .catch(error => callback(error))
         .then(docs => callback(null, docs))
 }
 
