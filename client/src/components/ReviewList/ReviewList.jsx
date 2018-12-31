@@ -37,7 +37,7 @@ class ReviewList extends React.Component {
     }
     
     componentDidMount() {
-        Axios.get('http://127.0.0.1:5002/1/reviews')
+        Axios.get('/' + this.restaurantId + '/reviews')
             .then(response =>  this.reviews = response.data)
             .catch(error => console.error(error))
             //always gets run
@@ -50,7 +50,7 @@ class ReviewList extends React.Component {
             loading: true,
             searchMode: true
         })
-        Axios.post('http://127.0.0.1:5002/1/search',{query: query})
+        Axios.post('/' + this.restaurantId + '/search',{query: query})
             .then(response => this.reviews = response.data)
             .catch(error => console.error(error))
             .then(()=> this.setState({loading: false}))
@@ -61,7 +61,7 @@ class ReviewList extends React.Component {
             searchMode: false,
             searchedTerm: null
         })
-        Axios.get('http://127.0.0.1:5002/1/reviews')
+        Axios.get('/' + this.restaurantId + '/reviews')
         .then(response =>  this.reviews = response.data)
         .catch(error => console.error(error))
         //always gets run
