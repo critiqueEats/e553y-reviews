@@ -68,9 +68,14 @@ class ReviewList extends React.Component {
         .then(()=> this.setState({loading: false}))
     }
 
-    onSortOptionChange() {
-        console.log(arguments)
-        console.log("hey")
+    onSortOptionChange(sortTypeIdx) {
+        const allowedParams = ['', '-date', 'date', '-stars', 'stars', 'elites'];
+        const sortBy = allowedParams[sortTypeIdx];
+
+        Axios.get('/' + this.restaurantId + '/reviews/?sortBy=' + sortBy)
+        .then(response => this.reviews = response.data)
+        .catch(error => console.error(error))
+        .then(()=> this.setState({loading: false}))
     }
     onLanguageChange (idx) {
         console.log(idx)
