@@ -17,7 +17,9 @@ class ReviewList extends React.Component {
             searchedTerm: null,
             selectedLanguage: [0]           
         }
-        
+
+        this.reviewsByLanguage = {English: []};
+        this.languages_count = ["English (0)"];       
         this.languages = ["English"]
         this.sortOptions = [
             "Lorem Yelpsum Sort", 
@@ -34,14 +36,40 @@ class ReviewList extends React.Component {
         this.onClearSearch = this.onClearSearch.bind(this);
         this.onSortOptionChange = this.onSortOptionChange.bind(this);
         this.onLanguageChange = this.onLanguageChange.bind(this);
+        this.catagorizeReviews = this.catagorizeReviews.bind(this);
     }
     
     componentDidMount() {
         Axios.get('/' + this.restaurantId + '/reviews')
-            .then(response =>  this.reviews = response.data)
+            .then(response =>  response.data).then(this.catagorizeReviews)
             .catch(error => console.error(error))
             //always gets run
             .then(()=> this.setState({loading: false}))
+    }
+
+    catagorizeReviews(reviews) {
+        //reset buckets
+        this.languages = ["English"];
+        this.reviewsByLanguage = {English: []};
+        
+        reviews.forEach(review => {
+            let language = review.language;
+            if(!this.languages.includes(language)) {                
+                this.languages.push(language);
+                this.reviewsByLanguage[language] = [];
+            }
+
+            this.reviewsByLanguage[language].push(review);
+        });
+        //display review-count for each language
+        this.languages_count = this.languages.map(language => (
+            `${language} (${this.reviewsByLanguage[language].length})`
+            )
+        )
+
+        //set-up English reviews to be rendered by default
+        this.reviews = this.reviewsByLanguage["English"];
+        return reviews;
     }
 
     onSearch(query) {
@@ -62,7 +90,7 @@ class ReviewList extends React.Component {
             searchedTerm: null
         })
         Axios.get('/' + this.restaurantId + '/reviews')
-        .then(response =>  this.reviews = response.data)
+        .then(response => response.data).then(this.catagorizeReviews)
         .catch(error => console.error(error))
         //always gets run
         .then(()=> this.setState({loading: false}))
@@ -73,13 +101,19 @@ class ReviewList extends React.Component {
         const sortBy = allowedParams[sortTypeIdx];
 
         Axios.get('/' + this.restaurantId + '/reviews/?sortBy=' + sortBy)
-        .then(response => this.reviews = response.data)
-        .catch(error => console.error(error))
-        .then(()=> this.setState({loading: false}))
+            .then(response => this.reviews = response.data)
+            .catch(error => console.error(error))
+            .then(()=> this.setState({loading: false}))
     }
-    onLanguageChange (idx) {
-        console.log(idx)
+
+    onLanguageChange (selectedIdx) {
+        this.setState({loading: true},() => {
+            const selectedLanguage = this.languages[selectedIdx];
+            this.reviews = this.reviewsByLanguage[selectedLanguage];
+            this.setState({loading: false});
+        });
     }
+    
     render() {
         return (
             <div className={styles.container}>
@@ -110,7 +144,7 @@ class ReviewList extends React.Component {
                         }
                         {this.state.searchMode ? '':
                         <span className={styles.dropdownWrapper}>
-                            <Dropdown label="Language" options={this.languages} selectedIdx={0} onSelectionChange={this.onLanguageChange} />
+                            <Dropdown label="Language" options={this.languages_count} selectedIdx={0} onSelectionChange={this.onLanguageChange} />
                         </span>
                         }
                     </form>
