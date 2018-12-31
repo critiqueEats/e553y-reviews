@@ -11,6 +11,10 @@
     width: 220px;
 }
 
+.userSidePanel ul {
+    padding-inline-start: 0px;
+}
+
 .reviewContentPanel {
     width: 425px;
 }
