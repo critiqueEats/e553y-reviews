@@ -38,12 +38,14 @@ class AddStars extends React.Component {
     }
     onStarClick(starIndex) {
         this.savedRating = starIndex;
+        if(this.props.onStarClick) {this.props.onStarClick(starIndex)}
     }
 
     render() {
         let rating = this.state.rating;
         const label = this.labelByRating[rating];
         const fill = this.colorByRating[rating];
+        const mode = this.props.mode;
         return (
         <div className={styles.container} onMouseLeave={this.onHoverOut.bind(this)}>
             {[0,0,0,0,0].map((s,idx)=> (                
@@ -52,7 +54,7 @@ class AddStars extends React.Component {
                     onMouseEnter={this.onHoverIn.bind(this, idx + 1)}
                     onClick={this.onStarClick.bind(this, idx + 1)}>
 
-                    {this.state.rating === idx + 1 ? 
+                    {this.state.rating === idx + 1 && mode === undefined ? 
                         <div className={styles.labelContainer}>
                             <span className={styles.label}>{label}</span>
                             <span className={styles.carret}></span>
@@ -66,6 +68,7 @@ class AddStars extends React.Component {
                     }
             </div>
             ))}
+            {label && mode === 'inline' ? <p className={styles.inlineLabel}>{label}</p> : ''}
         </div>
         );
     }
