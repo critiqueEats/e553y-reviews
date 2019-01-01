@@ -9,15 +9,17 @@ seedReviews = function(count) {
     user.name = faker.Name.firstName() + ' ' + faker.Name.lastName()[0] + '.',
     user.photo = `https://s3.amazonaws.com/lorem-yelpsum-photos/avatars/images+(${faker.random.number(72)}).jpg`;
     user.city = faker.Address.city();
+    user.friendCount = faker.random.number(150);
     user.reviewCount = Math.trunc(Math.random() * 500);
     user.photoCount = Math.trunc(Math.random() * 5);
-    user.elite = [false, false,"'18", "'17", "'16", "'15", "'14"][Math.trunc(Math.random() * 7)];
+    user.elite = [false, false, false, false, "'18", "'17", "'16", "'15", "'14"][Math.trunc(Math.random() * 9)];
     
     let reviewObj = {
         user: user,
         restaurantId: Math.trunc(Math.random() * 100),
+        stars: faker.random.number(4) + 1,
         date: faker.Date.past(100),
-        text: [faker.Lorem.sentences(), faker.Lorem.paragraph(),faker.Lorem.paragraphs()][Math.trunc(Math.random() * 3)],
+        text: [faker.Lorem.paragraph(), faker.Lorem.paragraphs(),faker.Lorem.paragraphs()][Math.trunc(Math.random() * 3)],
         photos: new Array(faker.random.number(4)).fill(0).map(()=> `https://s3.amazonaws.com/lorem-yelpsum-photos/food/images+(${faker.random.number(52)}).jpg`),
         useful: new Array(faker.random.number(2)).fill(0).map(()=> faker.Name.firstName() + ' ' + faker.Name.lastName()[0] + '.'),
         funny: new Array(faker.random.number(2)).fill(0).map(()=> faker.Name.firstName() + ' ' + faker.Name.lastName()[0] + '.'),
