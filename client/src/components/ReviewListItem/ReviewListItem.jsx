@@ -51,7 +51,7 @@ class ReviewListItem extends React.Component {
                             {photos.length? <PhotoPreview photos={photos} /> : ''} 
                         </li>
                         <li>
-                        <Vote  votes={{useful, funny, cool}} />
+                        <Vote  votes={{useful, funny, cool}} reviewId={this.props.reviewId} />
                         </li>
                     </ul>
                 </div>
