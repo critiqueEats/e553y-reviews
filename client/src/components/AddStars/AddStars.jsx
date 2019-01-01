@@ -20,7 +20,7 @@ class AddStars extends React.Component {
             4: "Yay! I'm a fan.",
             5: "Woohoo! As good as it gets!"
         }
-        this.savedRating = 0;
+        this.savedRating = this.props.defaultStars || 0;
 
         this.state = {
             rating: this.savedRating
@@ -38,7 +38,7 @@ class AddStars extends React.Component {
     }
     onStarClick(starIndex) {
         this.savedRating = starIndex;
-        if(this.props.onStarClick) {this.props.onStarClick(starIndex)}
+        if(typeof this.props.onStarClick === 'function') {this.props.onStarClick(starIndex)}
     }
 
     render() {

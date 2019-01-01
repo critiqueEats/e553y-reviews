@@ -36,7 +36,7 @@ class AddReview extends React.Component {
         <div className={styles.background}>
             <div className={styles.container}>
                 <form className={styles.reviewForm} id="reviewForm" onSubmit={this.onSubmit}>
-                    <AddStars mode={"inline"} onStarClick={this.setStarCount}/>
+                    <AddStars defaultStars={this.props.stars} mode={"inline"} onStarClick={this.setStarCount}/>
                     <textarea className={styles.reviewText} onChange={this.onInputChange} placeholder={`Your review helps others learn about great local businesses.\n\nPlease don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees.`}>
                     </textarea>
                     <input className={styles.submitButton} type="submit"  value="Post Review" />
