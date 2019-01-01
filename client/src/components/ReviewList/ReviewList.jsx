@@ -4,6 +4,7 @@ import AddStars from '../AddStars/AddStars.jsx';
 import Icon from '../Icon/Icon.jsx';
 import Dropdown from '../Dropdown/Dropdown.jsx';
 import Search from '../Search/Search.jsx';
+import AddReview from '../AddReview/AddReview.jsx';
 import styles from './styles.css';
 import Axios from 'axios';
 
@@ -15,7 +16,10 @@ class ReviewList extends React.Component {
             loading: true,
             searchMode: false,
             searchedTerm: null,
-            selectedLanguage: [0]           
+            selectedLanguage: [0],
+            userStarCount: null,
+            addingReview: false,
+            reviewDone: false,
         }
 
         this.reviewsByLanguage = {English: []};
@@ -31,12 +35,16 @@ class ReviewList extends React.Component {
         ];
         
         this.restaurantId = this.props.restaurantId,
+        this.postedReview = null;
        
         this.onSearch = this.onSearch.bind(this);
         this.onClearSearch = this.onClearSearch.bind(this);
         this.onSortOptionChange = this.onSortOptionChange.bind(this);
         this.onLanguageChange = this.onLanguageChange.bind(this);
         this.catagorizeReviews = this.catagorizeReviews.bind(this);
+        this.onReviewPost = this.onReviewPost.bind(this);
+        this.onStarClick = this.onStarClick.bind(this);
+        this.startReview = this.startReview.bind(this);
     }
     
     componentDidMount() {
@@ -113,6 +121,32 @@ class ReviewList extends React.Component {
             this.setState({loading: false});
         });
     }
+
+    onStarClick(starCount) {
+        this.setState({
+            userStarCount: starCount, 
+            addingReview: true
+        });
+    }
+
+    startReview () {
+        this.setState({addingReview: true});
+    } 
+
+    onReviewPost (cancelled, reviewObj) {
+        //if add review modal is cancelled 
+        if(cancelled) {
+            return this.setState({addingReview: false});
+        }
+
+        Axios.post('/' + this.restaurantId + '/reviews', reviewObj)
+            .then(response => response.data).then(review => {
+                this.postedReview = review;
+                this.setState({reviewDone: true});
+            })
+            .catch(error => console.log(error))
+            .then(()=> this.setState({addingReview: false}))
+    }
     
     render() {
         return (
@@ -149,6 +183,10 @@ class ReviewList extends React.Component {
                         }
                     </form>
                 </li>
+                {this.state.addingReview ? <AddReview stars={this.state.userStarCount} onReviewPost={this.onReviewPost}/> :
+                this.state.reviewDone ? 
+                    <ReviewListItem review={this.postedReview} />           
+                :
                 <li className={styles.composeReview}>
                     <div className={styles.composeReviewSidePanel}>
                         <img src="https://s3.amazonaws.com/lorem-yelpsum-photos/icons/empty_profile.png" alt="empty profile" />
@@ -156,14 +194,15 @@ class ReviewList extends React.Component {
                     <div className={styles.composeReviewBody}>
                         <div className={styles.composeReviewIsland}>
                             <div className={styles.starsWrapper}>
-                                <AddStars />
+                                <AddStars onStarClick={this.onStarClick}/>
                             </div>
                             <div className={styles.linkWrapper}>
-                                <a href="javascript:;" className={styles.startReviewLink}>Start your review</a>
+                                <a href="javascript:;" className={styles.startReviewLink} onClick={this.startReview}>Start your review</a>
                             </div>
                         </div>
                     </div>
                 </li>
+                }
                 {this.state.loading ? 
                 (
                     <div> Loading </div>
@@ -173,7 +212,7 @@ class ReviewList extends React.Component {
                             <ReviewListItem review={review} key={review._id} />
                         </li>
                     ))
-                )}
+                )}                
             </div>
         )
     }
