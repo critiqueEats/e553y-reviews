@@ -74,6 +74,12 @@ app.get('/reviews/:restaurantId', (req, res) => {
     res.send(template(restaurantId));    
 });
 
+//add roendpoint  to handle votes
+app.post('/reviews/:reviewId', (req, res) => {
+    res.status(201);
+    res.json({success: "vote saved"});
+})
+
 let port = 5002;
 const server = app.listen(port, ()=> console.log('Server running on port: ' + server.address().port));
 
