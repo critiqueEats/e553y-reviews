@@ -7,7 +7,7 @@
     display: flex;
     width: 60px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     overflow: hidden;
     border-right: 9px solid transparent;
 }
