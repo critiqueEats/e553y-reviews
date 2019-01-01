@@ -3,7 +3,7 @@ const styles = require('./styles.css');
 import Icon from '../Icon/Icon.jsx';
 
 const UserInfo = ({userInfo}) => {
-    let {name, city, photo, reviewCount, photoCount, elite} = userInfo;
+    let {name, city, photo, reviewCount, photoCount, elite, friendCount} = userInfo;
 
     return (
         <div className={styles.userInfo}>
@@ -15,6 +15,11 @@ const UserInfo = ({userInfo}) => {
                 <ul className={styles.details}>
                     <li className={styles.userName}>{name}</li>
                     <li className={styles.city}>{city}</li>
+                    <li className={styles.stats}>
+                        <Icon name="friends" width="18" height="18" fill="#f15c00" />
+                        &nbsp; <b>{friendCount}</b>
+                        &nbsp;friends
+                    </li>
                     <li className={styles.stats}>
                         <Icon name="review" width="18" height="18" fill="#f15c00" />
                         &nbsp;<b>{reviewCount}</b>
