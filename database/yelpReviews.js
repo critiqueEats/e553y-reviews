@@ -100,7 +100,7 @@ const searchReviewsByRestaurantId = function(restaurantId, query, callback) {
 const addReview = function(restaurantId, {name, text, stars}, callback) {
     let review = new Review({
         restaurantId: restaurantId,
-        user: {name: name, elite: "'18"},
+        user: {name: name, elite: "'18", photo: "https://s3.amazonaws.com/lorem-yelpsum-photos/avatars/empty_avatar.png"},
         language: 'English',
         text: text,
         stars: stars,
