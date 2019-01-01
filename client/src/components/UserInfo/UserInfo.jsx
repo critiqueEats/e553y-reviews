@@ -25,6 +25,9 @@ const UserInfo = ({userInfo}) => {
                         &nbsp;<b>{photoCount}</b>
                         &nbsp; photos
                     </li>
+                    <li className={styles.stats}>
+                        <a className={styles.eliteStatus} href="javascript:;"><strong>{elite !== 'false' ? "Elite " + elite : ''}</strong></a>
+                    </li>
                 </ul>
                 
             </div>
