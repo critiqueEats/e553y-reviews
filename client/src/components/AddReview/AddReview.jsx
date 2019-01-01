@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.css';
 import AddStars from '../AddStars/AddStars.jsx';
+import Icon from '../Icon/Icon.jsx';
 
 class AddReview extends React.Component {
     constructor(props) {
@@ -13,14 +14,19 @@ class AddReview extends React.Component {
         this.setStarCount = this.setStarCount.bind(this);
     }
 
-    onSubmit(e) {
+    onSubmit(e, cancelled) {
         e.preventDefault();
         const reviewObj =  {
             name: 'ananymous',
             text: this.reviewText,
             stars: this.starCount
         }
-        this.props.onReviewPost(reviewObj);
+        
+        if(cancelled) {
+            return this.props.onReviewPost(cancelled);
+        }
+
+        this.props.onReviewPost(null, reviewObj);
     }
     onInputChange (event) {
         const reviewText = event.target.value;
@@ -35,6 +41,9 @@ class AddReview extends React.Component {
         return(
         <div className={styles.background}>
             <div className={styles.container}>
+                <button className={styles.cancelButton} onClick={(e) => this.onSubmit(e, 'cancelled')}>
+                    Cancel&nbsp;<Icon name="close_small" fill="#d32323" />
+                </button>
                 <form className={styles.reviewForm} id="reviewForm" onSubmit={this.onSubmit}>
                     <AddStars defaultStars={this.props.stars} mode={"inline"} onStarClick={this.setStarCount}/>
                     <textarea className={styles.reviewText} onChange={this.onInputChange} placeholder={`Your review helps others learn about great local businesses.\n\nPlease don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees.`}>
