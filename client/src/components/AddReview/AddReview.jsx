@@ -17,7 +17,7 @@ class AddReview extends React.Component {
     onSubmit(e, cancelled) {
         e.preventDefault();
         const reviewObj =  {
-            name: 'ananymous',
+            name: 'anonymous',
             text: this.reviewText,
             stars: this.starCount
         }
