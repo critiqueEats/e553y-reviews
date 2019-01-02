@@ -152,7 +152,7 @@ class ReviewList extends React.Component {
         return (
             <div className={styles.container}>
                 <li className={styles.reviewsHeader}>
-                    <p className={styles.headerLabel}>Recomended Reviews</p>
+                    <p className={styles.headerLabel}>Recommended Reviews</p>
                     
                     <form className={styles.headerForm} onSubmit={(e)=> e.preventDefault()} id="reviewsControl">
                         {this.state.searchMode ? 
