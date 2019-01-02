@@ -13,7 +13,7 @@ const UserInfo = ({userInfo}) => {
 
             <div className={styles.detailsPanel}>
                 <ul className={styles.details}>
-                    <li className={styles.userName}>{name}</li>
+                    <li><a href="javascript:;" className={styles.userName}>{name}</a></li>
                     <li className={styles.city}>{city}</li>
                     <li className={styles.stats}>
                         <Icon name="friends" width="18" height="18" fill="#f15c00" />
