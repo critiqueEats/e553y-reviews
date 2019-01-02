@@ -13,22 +13,22 @@ const UserInfo = ({userInfo}) => {
 
             <div className={styles.detailsPanel}>
                 <ul className={styles.details}>
-                    <li className={styles.userName}>{name}</li>
+                    <li><a href="javascript:;" className={styles.userName}>{name}</a></li>
                     <li className={styles.city}>{city}</li>
                     <li className={styles.stats}>
                         <Icon name="friends" width="18" height="18" fill="#f15c00" />
                         &nbsp; <b>{friendCount}</b>
-                        &nbsp;friends
+                        &nbsp;{friendCount === 1 ? 'friend' : 'friends'}
                     </li>
                     <li className={styles.stats}>
                         <Icon name="review" width="18" height="18" fill="#f15c00" />
                         &nbsp;<b>{reviewCount}</b>
-                        &nbsp;reviews
+                        &nbsp;{reviewCount === 1 ? 'review' : 'reviews'}
                     </li>
                     <li className={styles.stats}>
                         <Icon name="camera" width="18" height="18" fill="#f15c00" />
                         &nbsp;<b>{photoCount}</b>
-                        &nbsp; photos
+                        &nbsp;{photoCount === 1 ? 'photo' : 'photos'}
                     </li>
                     <li className={styles.stats}>
                         <a className={styles.eliteStatus} href="javascript:;"><strong>{elite !== 'false' ? "Elite " + elite : ''}</strong></a>

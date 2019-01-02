@@ -30,6 +30,11 @@
     font-size: 14px;
     font-weight: 700;
     color: rgb(0, 115, 187);
+    text-decoration-line: none;
+}
+
+.userName:hover {
+    text-decoration-line: underline;
 }
 
 .city {

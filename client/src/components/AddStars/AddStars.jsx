@@ -68,7 +68,7 @@ class AddStars extends React.Component {
                     }
             </div>
             ))}
-            {label && mode === 'inline' ? <p className={styles.inlineLabel}>{label}</p> : ''}
+            {mode === 'inline' ? <p className={styles.inlineLabel}>{label || 'Select your rating'}</p> : ''}
         </div>
         );
     }
