@@ -7,7 +7,7 @@
     display: flex;
     width: 60px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     overflow: hidden;
     border-right: 9px solid transparent;
 }
@@ -45,4 +45,13 @@
     font-size: 12px;
     font-weight: 400;
     color: rgb(102, 102, 102);
+}
+
+.eliteStatus {
+    text-decoration-line: none;
+    color:  #f15c00;
+}
+
+.eliteStatus:hover {
+    text-decoration-line: underline;
 }
