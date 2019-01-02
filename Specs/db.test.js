@@ -1,17 +1,12 @@
-const proxyquire = require('proxyquire'); /* needed to stub-out the internal dependencies of the Unit Under Test */
-
+// use jest.mock to use mock config.js (which sets a 'test' database)
+jest.mock('../database/config');
+let db;
 describe('Helper functions', () => {
     
     // use 'test' database for testing to prevent "real" database interference
-    let db;
-    let configMock = {
-        uri: 'mongodb://localhost:3002',
-        options: {
-            dbName:'test'
-        }
-    }
+
     beforeAll(()=> {
-        db = proxyquire('../database/yelpReviews', {'config': configMock}); 
+        db = require('../database/yelpReviews');
         // empty collections before all tests to prevent  subsequent test runs from
         // interfering with eachother
         return  db.Summary.remove({}).then(() => 
