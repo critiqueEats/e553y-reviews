@@ -103,7 +103,8 @@ const addReview = function(restaurantId, {name, text, stars}, callback) {
         user: {
             name: name, 
             photo: "https://s3.amazonaws.com/lorem-yelpsum-photos/avatars/empty_avatar.png", 
-            city: "San-francisco, CA",
+            city: "San Francisco, CA",
+            elite: false,
             reviewCount: 1,
             friendCount: 0,
             photoCount: 0,
