@@ -185,7 +185,7 @@ class ReviewList extends React.Component {
                 </li>
                 {this.state.addingReview ? <AddReview stars={this.state.userStarCount} onReviewPost={this.onReviewPost}/> :
                 this.state.reviewDone ? 
-                    <ReviewListItem review={this.postedReview} />           
+                    <li> <ReviewListItem review={this.postedReview} />  </li>        
                 :
                 <li className={styles.composeReview}>
                     <div className={styles.composeReviewSidePanel}>
