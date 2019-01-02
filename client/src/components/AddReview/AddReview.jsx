@@ -41,10 +41,10 @@ class AddReview extends React.Component {
         return(
         <div className={styles.background}>
             <div className={styles.container}>
-                <button className={styles.cancelButton} onClick={(e) => this.onSubmit(e, 'cancelled')}>
-                    Cancel&nbsp;<Icon name="close_small" fill="#d32323" />
-                </button>
                 <form className={styles.reviewForm} id="reviewForm" onSubmit={this.onSubmit}>
+                    <button className={styles.cancelButton} onClick={(e) => this.onSubmit(e, 'cancelled')}>
+                        <Icon name="close_small" fill="#d32323" />
+                    </button>
                     <AddStars defaultStars={this.props.stars} mode={"inline"} onStarClick={this.setStarCount}/>
                     <textarea className={styles.reviewText} onChange={this.onInputChange} placeholder={`Your review helps others learn about great local businesses.\n\nPlease don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees.`}>
                     </textarea>
