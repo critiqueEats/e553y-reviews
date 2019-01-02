@@ -209,7 +209,7 @@ class ReviewList extends React.Component {
                 ):(
                     this.reviews.map(review =>(
                         <li className={styles.reviewItem}>
-                            <ReviewListItem review={review} key={review._id} />
+                            <ReviewListItem review={review} reviewId={review._id} key={review._id} />
                         </li>
                     ))
                 )}                

@@ -5,6 +5,10 @@
     color: rgb(102, 102, 102);
 }
 
+.voteSuccess {
+    color: #41a700;
+}
+
 .voterNames {
     text-decoration: none;
     color: rgb(0, 115, 187);
@@ -22,6 +26,7 @@
     margin-right: 6px;
 }
 
+.votedButton,
 .voteButton {
     display: inline-flex;
     align-items: center;
@@ -29,9 +34,17 @@
     height: 30px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    padding: 5px 8px;    
+    padding: 5px 8px;
+    cursor: pointer;    
 }
 
+.voteButton:hover {
+    background-color: #f5f5f5;
+}
+.votedButton {
+    color: #FFF;
+    background-color: #0097ec;
+}
 .voteCount {
     font-weight: 400;
 }
