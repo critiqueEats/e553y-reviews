@@ -48,7 +48,7 @@ class ReviewList extends React.Component {
     }
     
     componentDidMount() {
-        Axios.get('/' + this.restaurantId + '/reviews')
+        Axios.get('http://127.0.0.1:5002/' + this.restaurantId + '/reviews')
             .then(response =>  response.data).then(this.catagorizeReviews)
             .catch(error => console.error(error))
             //always gets run
@@ -86,7 +86,7 @@ class ReviewList extends React.Component {
             loading: true,
             searchMode: true
         })
-        Axios.post('/' + this.restaurantId + '/search',{query: query})
+        Axios.post('http://127.0.0.1:5002/' + this.restaurantId + '/search',{query: query})
             .then(response => this.reviews = response.data)
             .catch(error => console.error(error))
             .then(()=> this.setState({loading: false}))
@@ -97,7 +97,7 @@ class ReviewList extends React.Component {
             searchMode: false,
             searchedTerm: null
         })
-        Axios.get('/' + this.restaurantId + '/reviews')
+        Axios.get('http://127.0.0.1:5002/' + this.restaurantId + '/reviews')
         .then(response => response.data).then(this.catagorizeReviews)
         .catch(error => console.error(error))
         //always gets run
@@ -108,7 +108,7 @@ class ReviewList extends React.Component {
         const allowedParams = ['', '-date', 'date', '-stars', 'stars', 'elites'];
         const sortBy = allowedParams[sortTypeIdx];
 
-        Axios.get('/' + this.restaurantId + '/reviews/?sortBy=' + sortBy)
+        Axios.get('http://127.0.0.1:5002/' + this.restaurantId + '/reviews/?sortBy=' + sortBy)
             .then(response => this.reviews = response.data)
             .catch(error => console.error(error))
             .then(()=> this.setState({loading: false}))
@@ -139,7 +139,7 @@ class ReviewList extends React.Component {
             return this.setState({addingReview: false});
         }
 
-        Axios.post('/' + this.restaurantId + '/reviews', reviewObj)
+        Axios.post('http://127.0.0.1:5002/' + this.restaurantId + '/reviews', reviewObj)
             .then(response => response.data).then(review => {
                 this.postedReview = review;
                 this.setState({reviewDone: true});
