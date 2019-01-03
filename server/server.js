@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const models = require('../database/yelpReviews');
@@ -6,6 +7,9 @@ const template = require('./templates/index');
 
 
 const app = express();
+
+//enable cross-origin requests
+app.use(cors());
 
 //setup logging
 app.use(morgan('dev'));
