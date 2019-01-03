@@ -3,6 +3,6 @@ const ReactDOM = require('react-dom');
 import ReviewList from './components/ReviewList/ReviewList.jsx';
 
 
-global.app = Reviews;
+global.Reviews = ReviewList;
 global.React = React;
 global.ReactDOM = ReactDOM;

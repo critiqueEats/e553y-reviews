@@ -12,7 +12,7 @@ module.exports = (restaurantId) => `
         <script src="/bundle.js"></script>
         <script>
             ReactDOM.render(
-            React.createElement(app, {restaurantId: ${restaurantId}}, null),
+            React.createElement(Reviews, {restaurantId: ${restaurantId}}, null),
             document.getElementById('reviews')
             );
         </script>
