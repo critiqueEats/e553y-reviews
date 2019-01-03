@@ -10,6 +10,7 @@
   "scripts": {
     "start": "nodemon server/server.js",
     "build": "webpack --mode production",
+    "seed": "node database/seed.js",
     "server-dev": "nodemon server/server.js",
     "mongo-start": "sudo mongod --port 3002",
     "seed-db": "node database/seed.js",
