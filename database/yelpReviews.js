@@ -1,5 +1,13 @@
 const mongoose = require('mongoose');
 const config = require('./config');
+//CONFIG STRUCTURE
+// module.exports = {
+//     uri: 'mongodb://localhost:3002',
+//     options: {
+//         dbName:'yelpReviews'
+//     }
+// }
+
 const connection = mongoose.connect(config.uri, config.options);
 
 const SummarySchema =  new mongoose.Schema({
