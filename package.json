@@ -12,7 +12,7 @@
     "build": "webpack --mode production",
     "seed": "node database/seed.js",
     "server-dev": "nodemon server/server.js",
-    "mongo-start": "sudo mongod --port 3002",
+    "mongo-start": "sudo mongod",
     "seed-db": "node database/seed.js",
     "test": "jest --detectOpenHandles",
     "build-dev": "webpack --mode development --watch",
