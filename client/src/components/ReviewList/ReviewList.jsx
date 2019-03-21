@@ -7,6 +7,8 @@ import Search from '../Search/Search.jsx';
 import AddReview from '../AddReview/AddReview.jsx';
 import styles from './styles.css';
 import Axios from 'axios';
+import UserReview from '../UserReview/UserReview.jsx';
+import ReviewsControl from '../ReviewsControl/ReviewsControl.jsx';
 
 
 class ReviewList extends React.Component {
@@ -149,60 +151,20 @@ class ReviewList extends React.Component {
     }
     
     render() {
+        if(this.state.addingReview) {
+            return (
+               <AddReview stars={this.state.userStarCount} onReviewPost={this.onReviewPost}/>
+            )
+        }
+
         return (
             <div className={styles.container}>
-                <li className={styles.reviewsHeader}>
-                    <p className={styles.headerLabel}>Recommended Reviews</p>
-                    
-                    <form className={styles.headerForm} onSubmit={(e)=> e.preventDefault()} id="reviewsControl">
-                        {this.state.searchMode ? 
-                            <p className={styles.searchResultText}>
-                                {`${this.reviews.length} reviews mentioning “${this.state.searchedTerm}”`}
-                            </p>
-                            :''
-                        }
-                        {this.state.searchMode ? 
-                            <button className={styles.clearSearchButton} onClick={this.onClearSearch}>
-                            Clear results
-                                <Icon name="close_small" height="14" width="14" fill="#666" />
-                            </button>
-                            :''
-                        }
-                        <span className={styles.searchbarWrapper}>    
-                            <Search onSearch={this.onSearch} />
-                        </span>
-                        {this.state.searchMode ? '':
-                        <span className={styles.dropdownWrapper}>
-                            <Dropdown label="Sort By" options={this.sortOptions} selectedIdx={0} onSelectionChange={this.onSortOptionChange} />
-                        </span>
-                        }
-                        {this.state.searchMode ? '':
-                        <span className={styles.dropdownWrapper}>
-                            <Dropdown label="Language" options={this.languages_count} selectedIdx={0} onSelectionChange={this.onLanguageChange} />
-                        </span>
-                        }
-                    </form>
+                <li>
+                    <ReviewsControl searchMode={this.state.searchMode} reviews={this.reviews} searchedTerm={this.state.searchedTerm} onClearSearch={this.onClearSearch} onSearch={this.onSearch} sortOptions={this.sortOptions} onSortOptionChange={this.onSortOptionChange} languages_count={this.languages_count} onLanguageChange={this.onClearSearch} />
                 </li>
-                {this.state.addingReview ? <AddReview stars={this.state.userStarCount} onReviewPost={this.onReviewPost}/> :
-                this.state.reviewDone ? 
-                    <li> <ReviewListItem review={this.postedReview} />  </li>        
-                :
-                <li className={styles.composeReview}>
-                    <div className={styles.composeReviewSidePanel}>
-                        <img src="https://s3.amazonaws.com/lorem-yelpsum-photos/icons/empty_profile.png" alt="empty profile" />
-                    </div>
-                    <div className={styles.composeReviewBody}>
-                        <div className={styles.composeReviewIsland}>
-                            <div className={styles.starsWrapper}>
-                                <AddStars onStarClick={this.onStarClick}/>
-                            </div>
-                            <div className={styles.linkWrapper}>
-                                <a href="javascript:;" className={styles.startReviewLink} onClick={this.startReview}>Start your review</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                }
+                <li>
+                    <UserReview postedReview={this.postedReview} reviewDone={this.state.reviewDone} startReview={this.startReview} onStarClick={this.onStarClick} />
+                </li>        
                 {this.state.loading ? 
                 (
                     <div> Loading </div>
