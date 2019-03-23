@@ -36,7 +36,7 @@ class ReviewList extends React.Component {
             "Elites"
         ];
         
-        this.restaurantId = this.props.restaurantId,
+        this.restaurantId = window.restaurantId,
         this.postedReview = null;
        
         this.onSearch = this.onSearch.bind(this);

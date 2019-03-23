@@ -1,8 +1,21 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-import ReviewList from './components/ReviewList/ReviewList.jsx';
+const { Provider } = require('react-redux');
+const store = require('./redux-modules/storeConfig/store.js');
 
 
-global.Reviews = ReviewList;
+
+import ReviewListContainer from './components/ReviewList/ReviewListContainer.jsx';
+
+const Reviews = ({restaurantId}) => {
+  global.restaurantId = restaurantId;
+  return (
+    <Provider store={store} >
+      <ReviewListContainer />
+    </Provider>
+  );
+};
+
+global.Reviews = Reviews;
 global.React = React;
 global.ReactDOM = ReactDOM;
