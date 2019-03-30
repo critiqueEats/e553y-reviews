@@ -15,7 +15,8 @@ const initialState = {
     "Lowest Rated", 
     "Elites"
   ],
-  selectedSort: 0,
+  sortOptionIdx: 0,
+  searchedTerm: null,
 }
 
 const catagorizeReviews = function(reviews) {
@@ -51,16 +52,40 @@ export default function(state = initialState, action) {
       return Object.assign(
         {},
         state, 
-        catagorizeReviews(action.reviews), 
-        {
-          //reset the sort selection
-          selectedSort: 0, 
-          selectedLanguage: action.selectedLanguage
-        })
+        catagorizeReviews(action.reviews)
+      );
+    
+    case types.REVIEWS_SORT_SET:
+        const {sortOptionIdx} = action;
+        return Object.assign(
+          {},
+          state,
+          {sortOptionIdx}
+        );
 
     case types.REVIEWS_SET_LANGUAGE:
-      return Object.assign({},state, { selectedLanguage: action.selectedLanguage })
+      const {selectedLanguage} = action;
+      return Object.assign(
+        {},
+        state, 
+        { selectedLanguage }
+      );
     
+    case types.REVIEWS_SEARCHEDTERM_SET:
+        const {searchedTerm} = action;
+        return Object.assign(
+          {},
+          state,
+          {searchedTerm}
+        )
+    
+    case types.REVIEWS_SEARCHEDTERM_CLEAR:
+        return Object.assign(
+          {},
+          state,
+          {searchedTerm: null}
+        )
+
     default: 
       return state;   
   }
