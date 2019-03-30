@@ -3,14 +3,14 @@ import SearchContainer from '../Search/SearchContainer.jsx';
 import Dropdown from '../Dropdown/Dropdown.jsx';
 import Icon from '../Icon/Icon.jsx'
 
-const ReviewsControl = ({searchMode, reviews, searchedTerm, onClearSearch, onSearch, sortOptions, languages_count, onLanguageChange, onSortOptionChange}) => {
+const ReviewsControl = ({searchMode, reviewsCount, searchedTerm, onClearSearch, sortOptions, languages_count, onLanguageChange, onSortOptionChange}) => {
     if(searchMode) {
     return (
       <div className={styles.reviewsHeader}>
       <p className={styles.headerLabel}>Recommended Reviews</p>      
       <form className={styles.headerForm} onSubmit={(e)=> e.preventDefault()} id="reviewsControl">
               <p className={styles.searchResultText}>
-                  {`${reviews.length} reviews mentioning “${searchedTerm}”`}
+                  {`${reviewsCount} reviews mentioning “${searchedTerm}”`}
               </p>  
               <button className={styles.clearSearchButton} onClick={onClearSearch}>
               Clear results
