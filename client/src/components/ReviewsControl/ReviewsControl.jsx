@@ -1,10 +1,10 @@
 import styles from './styles.css';
-import Search from '../Search/Search.jsx';
+import SearchContainer from '../Search/SearchContainer.jsx';
 import Dropdown from '../Dropdown/Dropdown.jsx';
 import Icon from '../Icon/Icon.jsx'
 
 const ReviewsControl = ({searchMode, reviews, searchedTerm, onClearSearch, onSearch, sortOptions, languages_count, onLanguageChange, onSortOptionChange}) => {
-  if(searchMode) {
+    if(searchMode) {
     return (
       <div className={styles.reviewsHeader}>
       <p className={styles.headerLabel}>Recommended Reviews</p>      
@@ -17,7 +17,7 @@ const ReviewsControl = ({searchMode, reviews, searchedTerm, onClearSearch, onSea
                   <Icon name="close_small" height="14" width="14" fill="#666" />
               </button>
             <span className={styles.searchbarWrapper}>    
-                <Search onSearch={onSearch} />
+                <SearchContainer />
             </span>          
         </form>
       </div>
@@ -30,7 +30,7 @@ const ReviewsControl = ({searchMode, reviews, searchedTerm, onClearSearch, onSea
       
       <form className={styles.headerForm} onSubmit={(e)=> e.preventDefault()} id="reviewsControl">
           <span className={styles.searchbarWrapper}>    
-              <Search onSearch={onSearch} />
+            <SearchContainer />
           </span>          
           <span className={styles.dropdownWrapper}>
               <Dropdown label="Sort By" options={sortOptions} selectedIdx={0} onSelectionChange={onSortOptionChange} />
