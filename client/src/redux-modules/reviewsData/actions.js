@@ -7,17 +7,24 @@ export const updateReviews = function(reviews) {
   }
 }
 
-export const fetchReviews = function() {
+export const updateReviewsError = function(error) {
   return {
-    type: types.REVIEWS_FETCH,
-     
+    type: types.REVIEWS_UPDATE_ERROR,
+    error,
   }
 }
 
-export const fetchReviewsSorted = function(sortBy){
+export const fetchReviews = function() {
   return {
     type: types.REVIEWS_FETCH_SORTED,
-    sortBy,
+    sortOptionIdx: 0,
+  }
+}
+
+export const fetchReviewsSorted = function(sortOptionIdx){
+  return {
+    type: types.REVIEWS_FETCH_SORTED,
+    sortOptionIdx,
   }
 }
 
@@ -28,9 +35,30 @@ export const fetchSearch = function(searchTerm) {
   }
 }
 
+export const setSearchedTerm = function(searchedTerm) {
+  return {
+    type: types.REVIEWS_SEARCHEDTERM_SET,
+    searchedTerm
+  }
+}
+
+export const clearSearchedTerm = function() {
+  return {
+    type: types.REVIEWS_SEARCHEDTERM_CLEAR,
+  }
+}
+
 export const setLanguage = function(selectedLanguage) {
   return {
     type: types.REVIEWS_SET_LANGUAGE,
     selectedLanguage,
   }
 }
+
+export const setSort = function(sortOptionIdx) {
+  return {
+    type: types.REVIEWS_SORT_SET,
+    sortOptionIdx,
+  }
+} 
+
