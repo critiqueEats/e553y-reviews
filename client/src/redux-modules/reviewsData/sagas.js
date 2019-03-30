@@ -1,7 +1,7 @@
 import "regenerator-runtime/runtime";
-import {takeLatest, put, call, all, takeEvery, select} from 'redux-saga/effects';
+import {put, call, all, takeEvery} from 'redux-saga/effects';
 import {setDefault, setLoading, setSearching} from '../moduleMode/actions.js';
-import {updateReviews, updateReviewsError, setSort, setSearchedTerm} from './actions.js';
+import {updateReviews, updateReviewsError, setSort, setSearchedTerm, clearSearchedTerm} from './actions.js';
 import {fetchReviews, searchReviews} from '../../Utils/Api.js';
 import types from '../reviewsData/types.js';
 
@@ -38,6 +38,7 @@ const requestReviews = function* (action){
     yield put(updateReviewsError(error));
   // finally reset mode to default
   }finally{
+    yield put(clearSearchedTerm());
     yield put(setDefault());
   }
 }

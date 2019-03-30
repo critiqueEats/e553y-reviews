@@ -15,10 +15,10 @@ export default function(state = initialState, action) {
       return Object.assign({},state, {loading: true })
     
     case types.MODE_SEARCHING:
-      return Object.assign({},state, {searchMode: true })
+      return Object.assign({},state, {searchMode: true, loading:false, addingReview: false })
     
     case types.MODE_ADDING_REVIEW:
-      return Object.assign({},state, {addingReview: true })
+      return Object.assign({},state, {addingReview: true, loading:false, searchMode:false})
     default: 
       return state;   
   }
