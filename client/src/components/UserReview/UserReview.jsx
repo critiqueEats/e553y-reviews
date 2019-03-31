@@ -1,12 +1,12 @@
-import AddStars from '../AddStars/AddStars.jsx';
+import AddStarsContainer from '../AddStars/AddStarsContainer.jsx';
 import styles from './styles.css';
 
 
-const UserReview = ({postedReview, reviewDone, startReview, onStarClick}) => {
+const UserReview = ({userReview, onStartReview}) => {
 
-  if(reviewDone) {
+  if(userReview) {
     return (
-      <li> <ReviewListItem review={postedReview} />  </li>
+      <li> <ReviewListItem review={userReview} />  </li>
     )
   }
   
@@ -18,10 +18,10 @@ const UserReview = ({postedReview, reviewDone, startReview, onStarClick}) => {
       <div className={styles.composeReviewBody}>
           <div className={styles.composeReviewIsland}>
               <div className={styles.starsWrapper}>
-                  <AddStars onStarClick={onStarClick}/>
+                  <AddStarsContainer />
               </div>
               <div className={styles.linkWrapper}>
-                  <a href="javascript:;" className={styles.startReviewLink} onClick={startReview}>Start your review</a>
+                  <a href="javascript:;" className={styles.startReviewLink} onClick={onStartReview}>Start your review</a>
               </div>
           </div>
       </div>
