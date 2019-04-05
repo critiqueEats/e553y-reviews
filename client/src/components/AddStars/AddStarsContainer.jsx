@@ -9,10 +9,7 @@ const mapStateToProps = (state, {mode}) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onStarClick: (starCount) => {
-    dispatch(starsSelect(starCount));
-    dispatch(startReview());
-  }
+  onStarClick: (starCount) => dispatch(starsSelect(starCount)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddStars);

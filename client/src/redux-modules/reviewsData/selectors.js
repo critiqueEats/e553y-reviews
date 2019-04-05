@@ -1,6 +1,5 @@
 export const selectReviews = ({reviewsData}) => {
   const {languages, reviewsByLanguage, selectedLanguage} = reviewsData;
-  console.log('in selectReviews', languages, reviewsByLanguage, selectedLanguage);
   return reviewsByLanguage[languages[selectedLanguage]];
 }
 

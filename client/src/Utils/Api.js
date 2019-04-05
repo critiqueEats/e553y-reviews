@@ -6,7 +6,6 @@ const HOST = 'http://127.0.0.1:5002/';
 
 export const fetchReviews = function (options) {
   const {sortBy} = options;
-  console.log(sortBy);
   //throw error if restaurantId is not set
   if (!global.restaurantId) throw new Error('restaurantId not set');
 
@@ -22,4 +21,13 @@ export const searchReviews = function (query) {
   return Axios.post(HOST + global.restaurantId + '/search', { query })
     .then(response => ({reviews: response.data}))
     .catch(error => { error })
+}
+
+export const postReview = function(reviewObj) {
+  //throw error if restaurantId is not set
+  if (!global.restaurantId) throw new Error('restaurantId not set');
+
+  return Axios.post(HOST + global.restaurantId + '/reviews', reviewObj)
+    .then(response => ({userReview: response.data}))
+    .catch(error => {error})
 }

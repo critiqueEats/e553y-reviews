@@ -9,6 +9,15 @@ export const starsSelect = (starCount) => ({
   starCount,
 });
 
+export const hoverStars = (starCount) =>({
+  type: types.USER_STARS_HOVER,
+  starCount,
+})
+
+export const clearStars = () => ({
+  type: types.USER_STARS_CLEAR,
+})
+
 export const postReview = (reviewObj) => ({
   type: types.USER_REVIEW_POST,
   reviewObj,

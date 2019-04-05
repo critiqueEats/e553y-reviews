@@ -1,4 +1,5 @@
 import AddStarsContainer from '../AddStars/AddStarsContainer.jsx';
+import ReviewListItem from '../ReviewListItem/ReviewListItem.jsx';
 import styles from './styles.css';
 
 
@@ -6,7 +7,7 @@ const UserReview = ({userReview, onStartReview}) => {
 
   if(userReview) {
     return (
-      <li> <ReviewListItem review={userReview} />  </li>
+      <ReviewListItem review={userReview} />
     )
   }
   
