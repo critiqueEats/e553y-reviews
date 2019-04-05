@@ -1,17 +1,15 @@
 import React from 'react';
 import styles from './styles.css';
-import AddStars from '../AddStars/AddStars.jsx';
+import AddStarsContainer from '../AddStars/AddStarsContainer.jsx';
 import Icon from '../Icon/Icon.jsx';
 
 class AddReview extends React.Component {
     constructor(props) {
         super(props);
         this.reviewText = null;
-        this.starCount = null;
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
-        this.setStarCount = this.setStarCount.bind(this);
     }
 
     onSubmit(e, cancelled) {
@@ -19,7 +17,7 @@ class AddReview extends React.Component {
         const reviewObj =  {
             name: 'anonymous',
             text: this.reviewText,
-            stars: this.starCount
+            stars: this.props.userStarCount
         }
         
         if(cancelled) {
@@ -33,10 +31,6 @@ class AddReview extends React.Component {
         this.reviewText = reviewText;
     }
 
-    setStarCount (starCount) {
-        this.starCount = starCount;
-    }
-
     render() {
         return(
         <div className={styles.background}>
@@ -45,7 +39,7 @@ class AddReview extends React.Component {
                     <button className={styles.cancelButton} onClick={(e) => this.onSubmit(e, 'cancelled')}>
                         <Icon name="close_small" fill="#d32323" />
                     </button>
-                    <AddStars defaultStars={this.props.stars} mode={"inline"} onStarClick={this.setStarCount}/>
+                    <AddStarsContainer mode={"inline"} />
                     <textarea className={styles.reviewText} onChange={this.onInputChange} placeholder={`Your review helps others learn about great local businesses.\n\nPlease don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees.`}>
                     </textarea>
                     <input className={styles.submitButton} type="submit"  value="Post Review" />

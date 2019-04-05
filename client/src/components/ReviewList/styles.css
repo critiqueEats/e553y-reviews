@@ -7,63 +7,8 @@
     color: #666;
 }
 
-.reviewsHeader {
-    display: flex;
-    flex-direction: column;
-}
-.headerLabel {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 21px;
-    font-weight: bold;
-    color: #d32323;
-}
-
-.headerForm {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.searchbarWrapper {
-    display: flex;
-    align-items: center;
-}
-.searchbar {
-    box-sizing: border-box;
-    border: 1px solid #999;
-    height: 30px;
-    width: 260px;
-    font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
-    font-size: 14px; 
-    text-indent: .5rem;
-    
-}
-
-.searchButton {
-    height: 30px;
-    width: 30px;
-    padding: 0px;
-    margin: 0px;
-    border: none;
-    text-decoration: none;
-    font-family: inherit;
-    box-sizing: border-box;
-    background-color: #d32323;
-}
 .dropdownContainer {
 
-}
-.composeReview {
-    display: flex;
-}
-
-.composeReviewSidePanel {
-    display: inline-block;
-    min-width: 220px;
-}
-.composeReviewBody {
-    width: 425px;
-    padding-left: 40px;
 }
 .container > li {
     display: flex;
@@ -72,42 +17,3 @@
     border-bottom: 1px solid rgb(230, 230, 230);
     
 }
-
-.composeReviewIsland {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    width: 382px;
-    height: 94px;
-    padding: 11px;
-    background-color: rgb(245, 245, 245);
-    border: 1px solid rgb(230, 230, 230);
-    border-radius: 5px;
-}
-
-.starsWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 10px 0px;
-    border-bottom: 1px solid rgb(230, 230, 230);
-}
-
-.linkWrapper {
-    padding: 5px 0px;
-}
-
-.startReviewLink {
-    text-decoration: none;
-    font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #0073bb;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.startReviewLink:hover {
-    text-decoration-line: underline;
-}
-
