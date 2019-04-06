@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon component should generate matching html snap-shot 1`] = `"<svg class=\\"icon-name\\" width=\\"18\\" height=\\"18\\" fill=\\"#000\\"><use xlink:href=\\"#reviews-icons_name\\"></use></svg>"`;
