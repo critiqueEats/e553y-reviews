@@ -15,7 +15,10 @@
     "mongo-start": "sudo mongod",
     "seed-db": "node database/seed.js",
     "build-dev": "webpack --mode development --watch",
-    "build-prod": "webpack --mode production"
+    "build-prod": "webpack --mode production",
+    "test": "jest",
+    "test:watch": "jest --watch",    
+    "test:coverage": "jest --coverage --colors"
   },
   "dependencies": {
     "axios": "^0.18.0",
