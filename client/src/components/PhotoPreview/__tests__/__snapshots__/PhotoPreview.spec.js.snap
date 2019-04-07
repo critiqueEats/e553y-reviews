@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PhotoPreview Component should generate matching html snapshot 1`] = `
+
+<div class="container">
+  <div class="photoCardFull">
+    <img class="thumbnail"
+         src="url1"
+         alt="food picture"
+    >
+  </div>
+  <div class="photoCardHalf">
+    <img class="thumbnail"
+         src="url2"
+         alt="food picture"
+    >
+  </div>
+  <div class="photoCardHalf">
+    <img class="thumbnail"
+         src="url3"
+         alt="food picture"
+    >
+  </div>
+</div>
+
+`;
