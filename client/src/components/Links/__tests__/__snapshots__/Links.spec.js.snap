@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Links Component  should generate matching html snapshot 1`] = `
+
+<div class="container">
+  <ul class="linksList">
+    <li class="linkItem">
+      <a href="javascript:;">
+        <div class="icon">
+          Mock-Icon-Component
+        </div>
+        <div class="iconText">
+          Share review
+        </div>
+      </a>
+    </li>
+    <li class="linkItem">
+      <a href="javascript:;">
+        <div class="icon">
+          Mock-Icon-Component
+        </div>
+        <div class="iconText">
+          Embed review
+        </div>
+      </a>
+    </li>
+    <li class="linkItem">
+      <a href="javascript:;">
+        <div class="icon">
+          Mock-Icon-Component
+        </div>
+        <div class="iconText">
+          Compliment
+        </div>
+      </a>
+    </li>
+    <li class="linkItem">
+      <a href="javascript:;">
+        <div class="icon">
+          Mock-Icon-Component
+        </div>
+        <div class="iconText">
+          Send message
+        </div>
+      </a>
+    </li>
+    <li class="linkItem">
+      <a href="javascript:;">
+        <div class="icon">
+          Mock-Icon-Component
+        </div>
+        <div class="iconText">
+          Follow testName
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+`;
