@@ -37,11 +37,9 @@ describe('Links Component ', function() {
     }
     let expectedContext = {}
 
-    expect(Icon).toHaveBeenNthCalledWith(1, expectedProps, expectedContext)
-    expect(Icon).toHaveBeenNthCalledWith(2, expectedProps, expectedContext)
-    expect(Icon).toHaveBeenNthCalledWith(3, expectedProps, expectedContext)
-    expect(Icon).toHaveBeenNthCalledWith(4, expectedProps, expectedContext)
-    expect(Icon).toHaveBeenNthCalledWith(5, expectedProps, expectedContext)
+    Icon.mock.calls.map(args => {
+      expect(args).toMatchObject([expectedProps, expectedContext])
+    })
   })
 
   it('should be hidden with "false" show prop', function() {
